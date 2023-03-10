@@ -27,7 +27,7 @@
                     <div class="d-flex">
                         <div class="logo-parent">
                             <a href="<?php echo home_url(); ?>" title="">
-                                <img src="<?php echo FILE_URI; ?>/assets/img/14.png"
+                                <img src="<?php echo get_cmb2_values('general_options', 'site_logo'); ?>"
                                      class="" alt="" title="">
                             </a>
                         </div>
@@ -44,23 +44,24 @@
                             <!--logo-->
                             <div class="text-center d-lg-none mt-2 logo-parent">
                                 <a href="<?php echo home_url(); ?>" title="">
-                                    <img src="<?php echo FILE_URI; ?>/assets/img/14.png"
+                                    <img src="<?php echo get_cmb2_values('general_options', 'site_logo'); ?>"
                                          width="70" height="70" alt="" title="">
                                 </a>
                             </div>
                             <!--search box-->
                             <div class="parent-sm-search mx-3 my-3 d-lg-none">
-                                <form action="" class="my-3">
+                                <form class="my-3" role="search" id="search-query" method="get"
+                                      action="<?php echo home_url(); ?>">
                                     <input type="text"
                                            class="search-sm-inp border-radios-10 border-0 w-100 fs15 pr-2"
                                            placeholder="دنبال چی میگردی؟">
                                 </form>
                             </div>
-							<?php
-							wp_nav_menu( array(
-								'theme_location' => 'to-header-menu'
-							) );
-							?>
+                            <?php
+                            wp_nav_menu(array(
+                                'theme_location' => 'to-header-menu'
+                            ));
+                            ?>
                             <!--<nav>
 								<ul>
 									<li><a href="" title="asxasxasxasx">بیماری</a></li>
@@ -94,17 +95,17 @@
                     </div>
                 </div>
                 <!--right-->
-				<?php
-				if ( is_user_logged_in() ):
-				?>
+                <?php
+                if (is_user_logged_in()):
+                ?>
                 <div class="mr-auto mt-4 ml-4">
-					<?php
-					else:
-					?>
+                    <?php
+                    else:
+                    ?>
                     <div class="mr-auto mt-4-5 ml-4">
-						<?php
-						endif;
-						?>
+                        <?php
+                        endif;
+                        ?>
                         <!--search-->
                         <svg class="ml-3 -ver-7 cursor-pointer text-secondary d-none d-lg-inline" width="20"
                              height="20"
@@ -115,11 +116,11 @@
                                   stroke-linecap="round" stroke-linejoin="round"></path>
                         </svg>
 
-						<?php
-						if ( is_user_logged_in() ):
-							?>
+                        <?php
+                        if (is_user_logged_in()):
+                            ?>
 
-                            <img src="<?php display_user_image( get_current_user_id() ); ?>"
+                            <img src="<?php display_user_image(get_current_user_id()); ?>"
                                  class="rounded-circle cursor-pointer border object-cover img-top-header-profile"
                                  width="55"
                                  height="55" alt="">
@@ -149,7 +150,7 @@
                                     </a>
                                 </div>
                                 <div class="mt-4">
-                                    <a href="<?php echo wp_logout_url( home_url() ); ?>" title="Logout"
+                                    <a href="<?php echo wp_logout_url(home_url()); ?>" title="Logout"
                                        class="">
                                         <svg class="-ver-7 ml-2" width="20" height="20" viewBox="0 0 20 20"
                                              fill="#3B82F6" xmlns="http://www.w3.org/2000/svg">
@@ -158,11 +159,11 @@
                                             <path fill="#3B82F6"
                                                   d="M19.7789 9.45504L16.9331 6.54604C16.639 6.24604 16.1657 6.24604 15.8725 6.54804C15.5803 6.85004 15.5813 7.33704 15.8745 7.63704L17.4337 9.23004H15.9387H7.54844C7.13452 9.23004 6.79852 9.57504 6.79852 10C6.79852 10.426 7.13452 10.77 7.54844 10.77H17.4337L15.8745 12.363C15.5813 12.663 15.5803 13.15 15.8725 13.452C16.0196 13.603 16.2114 13.679 16.4043 13.679C16.5952 13.679 16.787 13.603 16.9331 13.454L19.7789 10.546C19.9201 10.401 20 10.205 20 10C20 9.79604 19.9201 9.60004 19.7789 9.45504Z"></path>
                                         </svg>
-                                         <span class="font-weight-bold fs14  text-secondary">خروج از حساب</span>
+                                        <span class="font-weight-bold fs14  text-secondary">خروج از حساب</span>
                                     </a>
                                 </div>
                             </div>
-						<?php else: ?>
+                        <?php else: ?>
                             <a href="<?php echo home_url() . '/index.php/login' ?>" title=""
                                class="fs16 register-login-btn border-radios-10 text-white">
                                 <span class="d-none d-lg-inline">ورود|عضویت</span>
@@ -170,7 +171,7 @@
                                     <path d="M1.16786 6.02753C1.23926 5.95544 1.50598 5.65076 1.75653 5.39776C3.21811 3.81313 7.03437 1.22195 9.03073 0.428959C9.33382 0.302461 10.1003 0.0331419 10.5112 0.0140991C10.9032 0.0140991 11.2776 0.105232 11.6346 0.284778C12.0805 0.536415 12.4361 0.933592 12.6328 1.4015C12.7581 1.72523 12.9548 2.69777 12.9548 2.71545C13.1501 3.77776 13.2565 5.50521 13.2565 7.41493C13.2565 9.23215 13.1501 10.8889 12.9898 11.9689C12.9723 11.9879 12.7756 13.1944 12.5614 13.6079C12.1694 14.3642 11.4029 14.8321 10.5826 14.8321H10.5112C9.97638 14.8144 8.85292 14.3451 8.85292 14.3288C6.96297 13.5358 3.23697 11.0698 1.73902 9.43074C1.73902 9.43074 1.31604 9.00908 1.13284 8.74656C0.84726 8.36843 0.70447 7.90052 0.70447 7.43261C0.70447 6.9103 0.864772 6.42471 1.16786 6.02753"></path>
                                 </svg>
                             </a>
-						<?php endif; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

@@ -28,9 +28,7 @@ $curauth = ( isset( $_GET['author_name'] ) ) ? get_user_by( 'slug', $author_name
                         <span class="pr-3"> تخصص :</span>
                         <span class="border-left pl-3">کارشناس پرستاری</span>
                     </div>
-                    <button class="btn btn-primary float-left mt-2 px-4 py-2">دنبال کردن</button>
                 </div>
-
             </div>
         </div>
     </div>

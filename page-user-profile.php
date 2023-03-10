@@ -1,7 +1,9 @@
 <?php
 get_header();
-get_template_part( 'templates/top-menu' );
-?>
+if (is_user_logged_in()):
+    get_template_part('templates/top-menu');
+    $current_user = wp_get_current_user();
+    ?>
 
     <?php get_template_part('templates/response-box'); ?>
     <div class="container mt-5">
@@ -11,22 +13,26 @@ get_template_part( 'templates/top-menu' );
                     <div class="position-relative">
                         <img src="<?php echo FILE_URI; ?>/assets/img/download.webp"
                              class="w-100 border-radios-10 object-cover p-h-t" alt="">
-                        <img src="<?php display_user_image( get_current_user_id() ); ?>"
+                        <img src="<?php display_user_image(get_current_user_id()); ?>"
                              class="position-absolute rounded-circle profile-img object-cover wh-pro"
                              alt="">
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="mt-5 fs28 font-weight-bold text-Purple-dark pt-5 mr-5">
-						<?php echo( wp_get_current_user()->display_name ); ?>
+                        <?php echo($current_user->display_name); ?>
                     </div>
                     <div class="mt-4 text-secondary d-inline-block mr-5">
                         <span>  ایمیل :</span>
-                        <span class="border-left pl-3"><?php echo( wp_get_current_user()->user_email ); ?></span>
-                        <span class="pr-3"> تخصص :</span>
-                        <span class="border-left pl-3">کارشناس پرستاری</span>
+                        <span class="border-left pl-3"><?php echo($current_user->user_email); ?></span>
+                        <span class="pr-3 fs16"> نقش شما در سایت :</span>
+                        <span class="border-left pl-3 fs16">
+                            <?php
+                            $roles = ( array )$current_user->roles;
+                            echo($roles[0]);
+                            ?>
+                        </span>
                     </div>
-                    <button class="btn btn-primary float-left mt-2 px-4 py-2">دنبال کردن</button>
                 </div>
             </div>
         </div>
@@ -57,31 +63,31 @@ get_template_part( 'templates/top-menu' );
                 <img src="<?php echo FILE_URI; ?>/assets/img/saved.png" class="" width="80" height="80" alt="">
                 پست های ذخیره شده
             </div>
-			<?php
-			if ( ! empty( get_user_meta( get_current_user_id(), 'saved_posts', true ) ) ):
-				$save_posts = get_user_meta( get_current_user_id(), 'saved_posts', true );
-				$number = 1;
-				foreach ( $save_posts as $save_post ):
-					?>
+            <?php
+            if (!empty(get_user_meta(get_current_user_id(), 'saved_posts', true))):
+                $save_posts = get_user_meta(get_current_user_id(), 'saved_posts', true);
+                $number = 1;
+                foreach ($save_posts as $save_post):
+                    ?>
                     <div class="col-12 mt-3">
                         <div class="p-4 w-100 border-radios-10 text-Purple-light p-desc d-flex">
-                            <a href="<?php echo get_permalink( $save_post ) ?>">
-                                <img src="<?php echo get_the_post_thumbnail_url( $save_post ); ?>"
+                            <a href="<?php echo get_permalink($save_post) ?>">
+                                <img src="<?php echo get_the_post_thumbnail_url($save_post); ?>"
                                      class="border-radios-10 object-cover"
                                      width="100" height="100"
-                                     title=" <?php echo get_the_title( $save_post ); ?>"
-                                     alt="<?php echo get_the_title( $save_post ); ?>">
+                                     title=" <?php echo get_the_title($save_post); ?>"
+                                     alt="<?php echo get_the_title($save_post); ?>">
                             </a>
 
 
                             <div class="d-block mr-4 mt-1">
-                                <a href="<?php echo get_permalink( $save_post ) ?>"
+                                <a href="<?php echo get_permalink($save_post) ?>"
                                    class="font-weight-bold fs22 text-Purple-dark">
-									<?php echo get_the_title( $save_post ); ?>
+                                    <?php echo get_the_title($save_post); ?>
                                 </a>
 
                                 <div class="mt-2 mt-md-4">
-                                    <a href="<?php echo get_permalink( $save_post ) ?>" class="fs14 font-weight-bold">
+                                    <a href="<?php echo get_permalink($save_post) ?>" class="fs14 font-weight-bold">
                                         برای خواندن کلیک کنید
                                         <svg width="16" height="11" viewBox="0 0 16 11" fill="none"
                                              xmlns="http://www.w3.org/2000/svg" class="mr-2 -ver-1">
@@ -105,18 +111,43 @@ get_template_part( 'templates/top-menu' );
                                           stroke-width="0.86" stroke-linecap="round" stroke-linejoin="round"></path>
                                 </svg>
                                 <div class="fs15 text-secondary">شماره
-									<?php echo $number; ?>
+                                    <?php echo $number; ?>
                                 </div>
                             </div>
                         </div>
                     </div>
-					<?php
-					$number ++;
-				endforeach;
-			endif;
-			?>
+                    <?php
+                    $number++;
+                endforeach;
+            endif;
+            ?>
+        </div>
+    </div>
+
+    <?php
+    get_template_part('templates/footer');
+else:
+    ?>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-5 mt-5">
+                <div class="alert alert-info px-5 py-3">
+                    <svg class="-ver-8 ml-2" width="23" height="23" viewBox="0 0 23 23" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <circle opacity="0.15" cx="13.8062" cy="13.2944" r="9.19385" fill="#0090b0"></circle>
+                        <path d="M0.785 8C0.785 9.62908 0.873314 10.8846 1.08987 11.859C1.30444 12.8245 1.63433 13.4652 2.08458 13.9154C2.53483 14.3657 3.17551 14.6956 4.14099 14.9101C5.11539 15.1267 6.37092 15.215 8 15.215C9.62908 15.215 10.8846 15.1267 11.859 14.9101C12.8245 14.6956 13.4652 14.3657 13.9154 13.9154C14.3657 13.4652 14.6956 12.8245 14.9101 11.859C15.1267 10.8846 15.215 9.62908 15.215 8C15.215 6.37092 15.1267 5.11539 14.9101 4.14099C14.6956 3.17551 14.3657 2.53483 13.9154 2.08458C13.4652 1.63433 12.8245 1.30444 11.859 1.08987C10.8846 0.873315 9.62908 0.785 8 0.785C6.37092 0.785 5.11539 0.873315 4.14099 1.08987C3.17551 1.30444 2.53483 1.63433 2.08458 2.08458C1.63433 2.53483 1.30444 3.17551 1.08987 4.14099C0.873314 5.11539 0.785 6.37092 0.785 8Z"
+                              stroke="#0090b0" stroke-width="1.57" stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                        <path d="M7.99996 4.6665V11.3332M11.3333 7.33317V11.3332M4.66663 8.6665V11.3332"
+                              stroke="#0090b0" stroke-width="1.57" stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                    </svg>
+                    ابتدا وراد سایت شوید
+                    <a class="text-info fs15 mr-1" href="<?php echo home_url(); ?>"> (صفحه اصلی)</a>
+                </div>
+            </div>
         </div>
     </div>
 <?php
-get_template_part( 'templates/footer' );
+endif;
 get_footer();

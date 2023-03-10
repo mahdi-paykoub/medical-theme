@@ -1447,7 +1447,7 @@ textarea:focus {
 /*login*/
 .bg-color-login {
     background: #f5f5fc;
-    height: 115vh;
+    height: fit-content;
 }
 
 .p-login-box {

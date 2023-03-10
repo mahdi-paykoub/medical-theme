@@ -132,6 +132,11 @@ class Medicalprefix_Admin
                 'closed' => true, // true to have the groups closed by default
             ),
         ));
+        $cmb->add_group_field($general_options, array(
+            'name' => 'تصویر لوگو سایت',
+            'id' => 'site_logo',
+            'type' => 'file',
+        ));
 	    $cmb->add_group_field($general_options, array(
 		    'name' => 'نام سایت',
 		    'id' => 'site_name',

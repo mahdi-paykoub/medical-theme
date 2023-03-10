@@ -9,7 +9,7 @@ if ( ! is_user_logged_in() ):
                     <div class="p-login-box bg-white my-4">
                         <div class="text-center pt-5">
                             <a href="<?php echo home_url(); ?>">
-                                <img src="<?php echo FILE_URI; ?>/assets/img/14.png" alt="">
+                                <img src="<?php echo get_cmb2_values('general_options' , 'site_logo'); ?>" alt="">
                             </a>
                         </div>
                         <div class="px-3 px-md-5 mt-5">
@@ -67,7 +67,6 @@ if ( ! is_user_logged_in() ):
 <?php
 else:
 	?>
-    <div class="bg-color-login w-100">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8 col-lg-5 mt-5">
@@ -88,7 +87,6 @@ else:
                 </div>
             </div>
         </div>
-    </div>
 <?php
 endif;
 get_footer();
