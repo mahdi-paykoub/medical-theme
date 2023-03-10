@@ -52,7 +52,7 @@ get_template_part( 'templates/response-box' );
                                 <div class="swiper-slide swiper-slide1 pb-5 pt-4">
                                     <!--img-->
                                     <div class="row mr-4 pt-2">
-                                        <div class="col-4 col-lg-6 img-p-cat p-4 bg-white border-radios-10">
+                                        <div class="col-4 col-lg-6 img-p-cat p-4 bg-white border-radios-10 shaking-fast">
                                             <img src="<?php echo get_term_meta( $get_cat->term_id, '__term_meta_text' )[0]; ?>"
                                                  class="object-cover w-100 border-radios-10"
                                                  alt="<?php echo $get_cat->name; ?>"
