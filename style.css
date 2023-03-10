@@ -569,8 +569,8 @@ a:hover {
     }
 }
 
-.shaking-fast:hover {
-    animation: shaking-fast 0.5s linear;
+.swiper-slide:hover .shaking-fast {
+    animation: shaking-fast 0.3s linear;
 }
 
 .lh-2 {
@@ -1648,9 +1648,10 @@ pre:has(> div.pre-style1) {
     background: rgb(246, 246, 246);
 }
 
-.display-none{
+.display-none {
     display: none;
 }
-.author-top-img{
+
+.author-top-img {
     filter: brightness(.7);
 }

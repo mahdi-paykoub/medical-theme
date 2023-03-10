@@ -1,20 +1,20 @@
 <?php
 get_header();
-get_template_part( 'templates/response-box' );
+get_template_part('templates/response-box');
 ?>
     <!--header-->
     <header class="header-back-img position-relative">
         <!--top menu-->
-		<?php get_template_part( 'templates/top-menu' ) ?>
+        <?php get_template_part('templates/top-menu') ?>
         <!--main header-->
-		<?php get_template_part( 'templates/index-header' ) ?>
+        <?php get_template_part('templates/index-header') ?>
     </header>
     <!--content-->
     <div class="mt-3 mt-5 position-relative -z-index-0">
         <!--new article-->
-		<?php get_template_part( 'templates/new-posts' ); ?>
+        <?php get_template_part('templates/new-posts'); ?>
         <!--most view article-->
-		<?php get_template_part( 'templates/most-view-posts' ); ?>
+        <?php get_template_part('templates/most-view-posts'); ?>
         <!--category-->
         <div class="container-fluid mt-10">
             <div class="row for-back-color position-relative">
@@ -42,37 +42,37 @@ get_template_part( 'templates/response-box' );
                     <div class="swiper swiper1 mySwiper">
                         <div class="swiper-wrapper">
 
-							<?php
-							$cat_args = array(
-								'parent' => 0,
-							);
-							$get_cats = get_categories( $cat_args );
-							foreach ( $get_cats as $get_cat ):
-								?>
+                            <?php
+                            $cat_args = array(
+                                'parent' => 0,
+                            );
+                            $get_cats = get_categories($cat_args);
+                            foreach ($get_cats as $get_cat):
+                                ?>
                                 <div class="swiper-slide swiper-slide1 pb-5 pt-4">
                                     <!--img-->
                                     <div class="row mr-4 pt-2">
-                                        <div class="col-4 col-lg-6 img-p-cat p-4 bg-white border-radios-10 shaking-fast">
-                                            <img src="<?php echo get_term_meta( $get_cat->term_id, '__term_meta_text' )[0]; ?>"
-                                                 class="object-cover w-100 border-radios-10"
+                                        <div class="col-4 col-lg-6 img-p-cat p-4 bg-white border-radios-10">
+                                            <img src="<?php echo get_term_meta($get_cat->term_id, '__term_meta_text')[0]; ?>"
+                                                 class="object-cover w-100 border-radios-10 shaking-fast"
                                                  alt="<?php echo $get_cat->name; ?>"
                                                  title="<?php echo $get_cat->name; ?>">
                                         </div>
                                     </div>
                                     <!--title-->
                                     <h3 class="font-weight-bold fs28 text-Purple-dark mr-4 mt-3">
-										<?php echo $get_cat->name; ?>
+                                        <?php echo $get_cat->name; ?>
                                     </h3>
                                     <p class="text-justify mx-4 fs14 pt-2 lh-1-6 pb-3">
-										<?php echo $get_cat->description; ?>
+                                        <?php echo $get_cat->description; ?>
                                     </p>
-                                    <a href="<?php echo esc_url( get_category_link( $get_cat->cat_ID ) ); ?>"
+                                    <a href="<?php echo esc_url(get_category_link($get_cat->cat_ID)); ?>"
                                        title="<?php echo $get_cat->name; ?>"
                                        class="fs14 btn-more-cat border-radios-5 cursor-pointer mr-4">مشاهده</a>
                                 </div>
-							<?php
-							endforeach;
-							?>
+                            <?php
+                            endforeach;
+                            ?>
 
                         </div>
                     </div>
@@ -100,28 +100,28 @@ get_template_part( 'templates/response-box' );
                     <div class="swiper swiper3 mySwiper3">
                         <div class="swiper-wrapper">
                             <!--repeat here-->
-							<?php
-							$newest    = array(
-								'post_type'      => array( 'post' ),
-								'post_status'    => 'publish',
-								'meta_value'     => '',
-								'meta_key'       => 'voice_file',
-								'meta_compare'   => '!=',
-								'order'          => 'DESC',
-								'posts_per_page' => 5
-							);
-							$new_posts = new WP_Query( $newest );
-							if ( $new_posts->have_posts() ) :
-								while ( $new_posts->have_posts() ) : $new_posts->the_post();
-									?>
+                            <?php
+                            $newest = array(
+                                'post_type' => array('post'),
+                                'post_status' => 'publish',
+                                'meta_value' => '',
+                                'meta_key' => 'voice_file',
+                                'meta_compare' => '!=',
+                                'order' => 'DESC',
+                                'posts_per_page' => 5
+                            );
+                            $new_posts = new WP_Query($newest);
+                            if ($new_posts->have_posts()) :
+                                while ($new_posts->have_posts()) : $new_posts->the_post();
+                                    ?>
                                     <div class="swiper-slide swiper-slide3 pt-3 px-3  position-relative">
                                         <!--podcast repeat-->
-										<?php get_template_part( 'templates/podcast' ) ?>
+                                        <?php get_template_part('templates/podcast') ?>
                                     </div>
-								<?php
-								endwhile;
-							endif;
-							?>
+                                <?php
+                                endwhile;
+                            endif;
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -135,18 +135,18 @@ get_template_part( 'templates/response-box' );
         <div class="container pt-5">
             <div class="row">
 
-				<?php
-				if ( is_active_sidebar( 'main_page_widget' ) ) {
-					dynamic_sidebar( 'main_page_widget' );
-				}
-				?>
+                <?php
+                if (is_active_sidebar('main_page_widget')) {
+                    dynamic_sidebar('main_page_widget');
+                }
+                ?>
                 <div class="col-12 col-lg-6 lh-2 mt-3 text-secondary text-justify">
                     <div class="p-index-comments bg-orange-dark pt-5 px-5 pb-4 mt-5 fs16 text-white">
-						<?php
-						if ( is_active_sidebar( 'main_page_widget_middle' ) ) {
-							dynamic_sidebar( 'main_page_widget_middle' );
-						}
-						?>
+                        <?php
+                        if (is_active_sidebar('main_page_widget_middle')) {
+                            dynamic_sidebar('main_page_widget_middle');
+                        }
+                        ?>
                         <div class="row">
                             <div class="col-6">
                                 <p class="font-weight-bold text-white pb-0 mb-2">
@@ -173,16 +173,16 @@ get_template_part( 'templates/response-box' );
                 </div>
 
 
-				<?php
-				if ( is_active_sidebar( 'main_page_widget_bottom' ) ) {
-					dynamic_sidebar( 'main_page_widget_bottom' );
-				}
-				?>
+                <?php
+                if (is_active_sidebar('main_page_widget_bottom')) {
+                    dynamic_sidebar('main_page_widget_bottom');
+                }
+                ?>
 
             </div>
         </div>
     </div>
     <!--footer-->
-<?php get_template_part( 'templates/footer' ) ?>
+<?php get_template_part('templates/footer') ?>
 <?php
 get_footer();
