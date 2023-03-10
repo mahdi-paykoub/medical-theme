@@ -60,7 +60,7 @@
     </div>
     <!--img-->
     <a href="<?php the_title(); ?>" title="<?php the_title(); ?>">
-        <img src="<?php echo get_the_post_thumbnail_url(); ?>" width="90" height="85"
+        <img src="<?php echo get_the_post_thumbnail_url(get_the_ID() , 'small_for_podcast'); ?>" width="90" height="85"
              class="position-absolute border-radios-5 object-cover" alt="<?php the_title(); ?>"
              title="<?php the_title(); ?>">
     </a>

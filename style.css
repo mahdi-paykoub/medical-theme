@@ -23,10 +23,6 @@ body {
         height: 210px;
     }
 
-    .wp-he-img {
-        height: 320px;
-    }
-
     .p-h-t {
         height: 200px;
     }
@@ -148,9 +144,6 @@ body {
         height: 160px;
     }
 
-    .wp-he-img {
-        height: 250px;
-    }
 
     .p-h-t {
         height: 400px;
@@ -1655,15 +1648,16 @@ audio::-webkit-media-controls-mute-button {
 .author-top-img {
     filter: brightness(.7);
 }
-.short-link-box input{
- border-radius: 50px;
+
+.short-link-box input {
+    border-radius: 50px;
 }
 
-.short-link-box input:focus{
-   outline: none;
+.short-link-box input:focus {
+    outline: none;
 }
 
-.short-link-box svg{
+.short-link-box svg {
     left: 23px;
     top: 13px;
 }

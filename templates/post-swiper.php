@@ -1,7 +1,7 @@
 <div class="parent-mv-box bg-white border-radios-10 p-4">
     <a href="<?php the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
-        <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="border-radios-10 object-cover wp-he-img" width="100%"
-             alt="<?php the_title(); ?>"
+        <img src="<?php echo get_the_post_thumbnail_url(get_the_ID() , 'size_for_swiper_index'); ?>" class="border-radios-10 object-cover wp-he-img" width="100%"
+             height="250"  alt="<?php the_title(); ?>"
              title="<?php the_title(); ?>">
     </a>
     <!--date & category-->

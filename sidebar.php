@@ -3,19 +3,19 @@
     <div class="font-weight-bold text-Purple-dark mr-2 mr-md-3 comment-count position-relative pb-3">
         پست های اخیر
     </div>
-	<?php
-	$newest    = array(
-		'post_type'      => array( 'post' ),
-		'post_status'    => 'publish',
-		'posts_per_page' => 3
-	);
-	$new_posts = new WP_Query( $newest );
-	if ( $new_posts->have_posts() ) :
-		while ( $new_posts->have_posts() ) : $new_posts->the_post();
-			?>
+    <?php
+    $newest = array(
+        'post_type' => array('post'),
+        'post_status' => 'publish',
+        'posts_per_page' => 3
+    );
+    $new_posts = new WP_Query($newest);
+    if ($new_posts->have_posts()) :
+        while ($new_posts->have_posts()) : $new_posts->the_post();
+            ?>
             <div class="mt-4 d-flex">
                 <a href="<?php the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
-                    <img src="<?php echo get_the_post_thumbnail_url(); ?>"
+                    <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'small_for_sidebar'); ?>"
                          class="object-cover border-radios-10 mr-2 mr-md-3" width="130"
                          height="100" alt="<?php echo get_the_title(); ?>"
                          title="<?php echo get_the_title(); ?>">
@@ -23,7 +23,7 @@
                 <div class="px-2">
                     <a href="<?php the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
                         <div class="font-weight-bold fs15 text-Purple-dark">
-							<?php echo get_the_title(); ?>
+                            <?php echo get_the_title(); ?>
                         </div>
                     </a>
 
@@ -44,11 +44,11 @@
                     </div>
                 </div>
             </div>
-		<?php
-		endwhile;
-	endif;
-	wp_reset_postdata();
-	?>
+        <?php
+        endwhile;
+    endif;
+    wp_reset_postdata();
+    ?>
 </div>
 <!--tags-->
 <div class="s-comment-p mt-4 py-4">
@@ -56,19 +56,19 @@
         برچسب ها
     </div>
     <div class="mt-4 px-2">
-		<?php
-		$tags = wp_get_post_tags( get_the_ID() );
-		if ( $tags ) :
-			foreach ( $tags as $tag ) :
-				?>
+        <?php
+        $tags = wp_get_post_tags(get_the_ID());
+        if ($tags) :
+            foreach ($tags as $tag) :
+                ?>
                 <a href="<?php echo get_tag_link($tag); ?>"
                    class="bg-Purple-light p-2 px-3 fs14 d-inline-block text-white border-radios-10 mt-2"><?php echo $tag->name; ?></a>
-			<?php endforeach;
-		else:
-			?>
+            <?php endforeach;
+        else:
+            ?>
             <div class="w-100 p-3 fs14 alert alert-info">تگی وجود ندارد</div>
-		<?php
-		endif;
-		?>
+        <?php
+        endif;
+        ?>
     </div>
 </div>

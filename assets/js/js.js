@@ -93,7 +93,7 @@ $(document).ready(function () {
                 spaceBetween: 10,
             },
 
-            "@1.00": {
+            "@1.25": {
                 slidesPerView: 2,
                 spaceBetween: 15,
             },
