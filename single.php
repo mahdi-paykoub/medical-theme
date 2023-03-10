@@ -7,6 +7,9 @@ if (have_posts()):
         get_template_part('templates/single-header', null, array($P_name, 2));
         set_post_view(get_the_ID());
         ?>
+    <div>
+        
+    </div>
         <!--content-->
         <div class="container mt-5 pt-5">
             <!--content-->
