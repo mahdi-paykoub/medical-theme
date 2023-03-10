@@ -1,19 +1,19 @@
 <?php
 get_header();
 //get_template_part( 'templates/response-box' );
-if ( have_posts() ):
-	while ( have_posts() ): the_post();
-		$P_name = get_the_title();
-		get_template_part( 'templates/single-header', null, array( $P_name, 2 ) );
-		set_post_view( get_the_ID() );
-		?>
+if (have_posts()):
+    while (have_posts()): the_post();
+        $P_name = get_the_title();
+        get_template_part('templates/single-header', null, array($P_name, 2));
+        set_post_view(get_the_ID());
+        ?>
         <!--content-->
         <div class="container mt-5 pt-5">
             <!--content-->
             <div class="row">
                 <div class="col-12 col-lg-8">
                     <div class="video-last-load">
-						<?php get_template_part( 'templates/video-part' ); ?>
+                        <?php get_template_part('templates/video-part'); ?>
                     </div>
                     <div class="mt-4">
                         <img src="<?php echo FILE_URI; ?>/assets/img/download31.jpg" class="rounded-circle object-cover"
@@ -33,14 +33,14 @@ if ( have_posts() ):
 
 
                         <span class="fs13 mr-auto text-orange-dark font-weight-bold -ver-1 float-left mt-3">زمان مطالعه:
-                            <?php echo is_postmeta_empty( 'post_read_time' ); ?>
+                            <?php echo is_postmeta_empty('post_read_time'); ?>
                             دقیقه</span>
                     </div>
 
-					<?php
-					if ( ! empty( get_post_meta( $post->ID, 'voice_file', true ) ) ):
-						$voice_file = get_post_meta( $post->ID, 'voice_file', true )
-						?>
+                    <?php
+                    if (!empty(get_post_meta($post->ID, 'voice_file', true))):
+                        $voice_file = get_post_meta($post->ID, 'voice_file', true)
+                        ?>
                         <div class="row mt-5 px-4 px-md-3">
                             <div class="d-flex">
                                 <svg class="-ver-7 ml-2" width="20" height="22" viewBox="0 0 20 22" fill="none">
@@ -60,18 +60,18 @@ if ( have_posts() ):
                             </audio>
 
                         </div>
-					<?php endif; ?>
+                    <?php endif; ?>
 
                     <div class="s-main-content px-2 px-md-0 mt-5">
-						<?php the_content(); ?>
+                        <?php the_content(); ?>
                     </div>
                     <!--rate-->
                     <!--share-->
                     <div class="row mt-5 border-top border-top border-bottom py-4">
-                        <div class="col-12 pr-4 pr-md-0">
+                        <div class="col-12 col-md-6 pr-4 pr-md-2">
                             <div class="d-flex align-items-center">
                                 <span class="fs14 pr-2 pr-md-0">اشتراک گذاری:</span>
-								<?php include get_template_directory() . '/inc/share-twitter.php'; ?>
+                                <?php include get_template_directory() . '/inc/share-twitter.php'; ?>
                                 <a href="<?php echo $link; ?>">
                                     <div class="d-flex p-2 bg-Purple-light border-radios-10 mr-2">
                                         <svg class="text-white"
@@ -103,6 +103,15 @@ if ( have_posts() ):
                                 </a>
                             </div>
                         </div>
+                        <div class="col-12 col-md-6 text-left mt-4 mt-md-0">
+                            <div class="short-link-box postion-relative">
+                                <input class="fs14 border p-2  text-secondary pl-4 " type="text" value="<?php the_permalink(); ?>">
+                                <svg class="-ver-4 position-absolute" width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.1251 9.37753C11.1735 9.03246 11.2048 8.65154 11.2224 8.23142C11.342 8.16599 11.4325 8.09594 11.5044 8.02404C11.6726 7.85578 11.8308 7.58558 11.9433 7.07954C12.0583 6.56181 12.1108 5.86547 12.1108 4.91155C12.1108 3.00521 11.8476 2.22592 11.4625 1.84091C11.0775 1.45589 10.2983 1.19269 8.3919 1.19269C7.43799 1.19269 6.74164 1.24514 6.22392 1.3602C5.71788 1.47266 5.44768 1.63081 5.27942 1.79907C5.20752 1.87097 5.13746 1.96148 5.07203 2.08106C5.36761 2.06867 5.68259 2.06306 6.01814 2.06306C10.3187 2.06306 11.2404 2.98479 11.2404 7.2853C11.2404 11.5858 10.3187 12.5075 6.01814 12.5075C1.71762 12.5075 0.795898 11.5858 0.795898 7.2853C0.795898 3.79726 1.40225 2.53194 3.92593 2.17833C4.4152 0.577466 5.64584 0.164062 8.3919 0.164062C12.1899 0.164062 13.1394 1.11356 13.1394 4.91155C13.1394 7.65762 12.726 8.88826 11.1251 9.37753Z"
+                                          fill="currentColor" fill-opacity="0.56"></path>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                     <!--related posts-->
                     <div class="row mt-5">
@@ -110,36 +119,36 @@ if ( have_posts() ):
                             پست های مشابه
                         </div>
 
-						<?php
-						$related_posts     = array(
-							'post_status'    => 'publish',
-							'post_type'      => 'post',
-							'category__in'   => wp_get_post_categories( get_the_ID() ),
-							'post__not_in'   => array( get_the_ID() ),
-							'posts_per_page' => 3,
-							'orderby'        => 'date',
-						);
-						$get_related_posts = new WP_Query( $related_posts );
-						if ( $get_related_posts->have_posts() ) :
-							while ( $get_related_posts->have_posts() ) : $get_related_posts->the_post();
-								?>
+                        <?php
+                        $related_posts = array(
+                            'post_status' => 'publish',
+                            'post_type' => 'post',
+                            'category__in' => wp_get_post_categories(get_the_ID()),
+                            'post__not_in' => array(get_the_ID()),
+                            'posts_per_page' => 3,
+                            'orderby' => 'date',
+                        );
+                        $get_related_posts = new WP_Query($related_posts);
+                        if ($get_related_posts->have_posts()) :
+                            while ($get_related_posts->have_posts()) : $get_related_posts->the_post();
+                                ?>
                                 <div class="col-12 col-md-4 mt-4">
-									<?php get_template_part( 'templates/post-box' ) ?>
+                                    <?php get_template_part('templates/post-box') ?>
                                 </div>
 
-							<?php
-							endwhile;
-						endif;
-						wp_reset_postdata();
-						?>
+                            <?php
+                            endwhile;
+                        endif;
+                        wp_reset_postdata();
+                        ?>
 
                     </div>
                     <!--comments-->
-					<?php echo comments_template(); ?>
+                    <?php echo comments_template(); ?>
                 </div>
                 <div class="col-12 col-lg-4">
                     <div class="sticky-top pb-5">
-						<?php get_sidebar(); ?>
+                        <?php get_sidebar(); ?>
                     </div>
                 </div>
             </div>
@@ -163,8 +172,8 @@ if ( have_posts() ):
 
             </a>
 
-            <span class="fs14 mr-2 text-secondary border-left pl-2"><?php echo get_comments_number( get_the_ID() ); ?></span>
-            <svg class="text-secondary cursor-pointer mr-2 like <?php is_liked( get_the_ID() ); ?>"
+            <span class="fs14 mr-2 text-secondary border-left pl-2"><?php echo get_comments_number(get_the_ID()); ?></span>
+            <svg class="text-secondary cursor-pointer mr-2 like <?php is_liked(get_the_ID()); ?>"
                  data-postid="<?php echo get_the_ID(); ?>" width="19" height="19" fill="none"
                  viewBox="0 0 13 11"
                  xmlns="http://www.w3.org/2000/svg">
@@ -172,10 +181,10 @@ if ( have_posts() ):
                       d="M3.95035 1.229C4.81955 1.229 5.61243 1.66166 6.21284 2.15457C6.81326 1.66166 7.60614 1.229 8.47534 1.229C10.3497 1.229 11.8691 2.62275 11.8691 4.34192C11.8691 7.80824 7.92382 9.82702 6.62321 10.3984C6.36123 10.5134 6.06445 10.5134 5.80248 10.3984C4.50187 9.827 0.556602 7.80816 0.556602 4.34184C0.556602 2.62267 2.07603 1.229 3.95035 1.229Z"
                       stroke-width="0.761705"></path>
             </svg>
-            <span class="fs14 mr-2 text-secondary border-left pl-2"><?php echo get_post_likes( get_the_ID() ); ?></span>
-			<?php $user_save_class = is_user_logged_in() ? 'save-post' : 'save-post-guest'; ?>
+            <span class="fs14 mr-2 text-secondary border-left pl-2"><?php echo get_post_likes(get_the_ID()); ?></span>
+            <?php $user_save_class = is_user_logged_in() ? 'save-post' : 'save-post-guest'; ?>
             <svg class="text-secondary cursor-pointer mr-2 <?php echo $user_save_class . ' ';
-			is_saved( get_the_ID() ) ?>" width="17"
+            is_saved(get_the_ID()) ?>" width="17"
                  height="17" fill="none" viewBox="0 0 10 12"
                  data-postid="<?php echo get_the_ID(); ?>">
                 <path stroke="currentColor"
@@ -186,10 +195,10 @@ if ( have_posts() ):
                       stroke-width="0.86" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
         </div>
-	<?php
-	endwhile;
+    <?php
+    endwhile;
 endif;
 wp_reset_postdata();
 
-get_template_part( 'templates/footer' );
+get_template_part('templates/footer');
 get_footer();

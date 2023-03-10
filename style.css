@@ -1655,3 +1655,15 @@ audio::-webkit-media-controls-mute-button {
 .author-top-img {
     filter: brightness(.7);
 }
+.short-link-box input{
+ border-radius: 50px;
+}
+
+.short-link-box input:focus{
+   outline: none;
+}
+
+.short-link-box svg{
+    left: 23px;
+    top: 13px;
+}
