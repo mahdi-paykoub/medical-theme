@@ -129,7 +129,7 @@ if (have_posts()):
                             'category__in' => wp_get_post_categories(get_the_ID()),
                             'post__not_in' => array(get_the_ID()),
                             'posts_per_page' => 3,
-                            'orderby' => 'date',
+                            'orderby' => 'id',
                         );
                         $get_related_posts = new WP_Query($related_posts);
                         if ($get_related_posts->have_posts()) :

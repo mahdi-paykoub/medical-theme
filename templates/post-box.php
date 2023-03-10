@@ -1,6 +1,6 @@
 <div class="p-3 border-radios-10 bg-white related-post-p">
     <a href="<?php the_permalink(); ?>">
-        <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="border-radios-10" width="100%"
+        <img src="<?php echo get_the_post_thumbnail_url(get_the_ID() , 'size_for_swiper_index'); ?>" class="border-radios-10 object-cover" width="100%"
              alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
         <div class="font-weight-bold text-Purple-dark mt-2"><?php the_title(); ?></div>
     </a>
