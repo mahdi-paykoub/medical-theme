@@ -1633,9 +1633,9 @@ audio::-webkit-media-controls-mute-button {
     color: #5157ff !important;
 }
 
-pre:has(> div.pre-style1) {
+/*pre:has(> div.pre-style1) {
     white-space: normal;
-}
+}*/
 
 .mt-1px {
     margin-top: 1px;
