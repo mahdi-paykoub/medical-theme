@@ -188,25 +188,35 @@ class Medicalprefix_Admin
 			    'closed' => true, // true to have the groups closed by default
 		    ),
 	    ));
+        $cmb->add_group_field($social_media, array(
+            'name' => 'ایمیل',
+            'id' => 'email_address',
+            'type' => 'text',
+        ));
+        $cmb->add_group_field($social_media, array(
+            'name' => 'واتساپ',
+            'id' => 'whats_app_number',
+            'type' => 'text',
+        ));
 	    $cmb->add_group_field($social_media, array(
 		    'name' => 'تلگرام',
 		    'id' => 'telegram_url',
-		    'type' => 'text_url',
+		    'type' => 'text',
 	    ));
 	    $cmb->add_group_field($social_media, array(
 		    'name' => 'اینستاگرام',
 		    'id' => 'instagram_url',
-		    'type' => 'text_url',
+		    'type' => 'text',
 	    ));
 	    $cmb->add_group_field($social_media, array(
 		    'name' => 'توییتر',
 		    'id' => 'twitter_url',
-		    'type' => 'text_url',
+		    'type' => 'text',
 	    ));
 	    $cmb->add_group_field($social_media, array(
 		    'name' => 'فیسبوک',
 		    'id' => 'facebook_url',
-		    'type' => 'text_url',
+		    'type' => 'text',
 	    ));
 
     }

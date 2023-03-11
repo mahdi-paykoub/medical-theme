@@ -18,8 +18,7 @@
 							<span class="fs15">خانه</span>
 						</a>
 						<span class="mx-1 -ver-4 text-white">/</span>
-						<a href="" class="text-white">
-
+						<span class="text-white">
 							<svg class="ml-1 -ver-4" width="18" height="18" viewBox="0 0 10 12" fill="none"
 							     xmlns="http://www.w3.org/2000/svg">
 								<path fill-rule="evenodd" clip-rule="evenodd"
@@ -29,8 +28,14 @@
 								      stroke="currentColor" stroke-width="0.923077" stroke-linecap="round"
 								      stroke-linejoin="round"></path>
 							</svg>
-							<span class="fs14"><?php echo $args[0]; ?></span>
-						</a>
+							<span class="fs14"><?php
+                                if (isset($args[1])){
+                                    echo ' زمان مطالعه: '. $args[1] . ' دقیقه ';
+                                }else{
+                                     echo $args[0];
+                                }
+                                ?></span>
+						</span>
 					</div>
 				</div>
 			</div>

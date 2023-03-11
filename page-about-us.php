@@ -1,6 +1,6 @@
 <?php
 get_header();
-get_template_part( 'templates/single-header', null, array( 'درباره  ما', 1 ) );
+get_template_part( 'templates/single-header', null, array( 'درباره  ما' ) );
 ?>
     <div class="container mt-5 py-5">
         <div class="row">

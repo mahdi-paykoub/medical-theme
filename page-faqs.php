@@ -1,6 +1,6 @@
 <?php
 get_header();
-get_template_part( 'templates/single-header', null, array( 'سوالات متداول', 1 ) );
+get_template_part( 'templates/single-header', null, array( 'سوالات متداول' ) );
 ?>
     <!--content-->
     <div class="container mt-5 pt-4">

@@ -1,6 +1,6 @@
 <?php
 get_header();
-get_template_part('templates/single-header', null, array('دسته ها', 1));
+get_template_part('templates/single-header', null, array('دسته ها'));
 ?>
     <!--content-->
     <div class="container mt-5 pb-5">
@@ -20,7 +20,7 @@ get_template_part('templates/single-header', null, array('دسته ها', 1));
                             <div class="col-4 col-lg-6 img-p-cat p-4 bg-white border-radios-10 ">
                                 <div class="d-flex">
                                     <img src="<?php echo get_term_meta($get_cat->term_id, '__term_meta_text')[0]; ?>"
-                                         class="object-cover mx-auto w-75 border-radios-10 shaking-fast"
+                                         class="object-cover mx-auto w-50 border-radios-10 shaking-fast"
                                          alt="<?php echo $get_cat->name; ?>"
                                          title="<?php echo $get_cat->name; ?>">
                                 </div>

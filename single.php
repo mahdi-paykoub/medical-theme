@@ -4,7 +4,8 @@ get_header();
 if (have_posts()):
     while (have_posts()): the_post();
         $P_name = get_the_title();
-        get_template_part('templates/single-header', null, array($P_name, 2));
+        $read_time =is_postmeta_empty('post_read_time');
+        get_template_part('templates/single-header', null, array($P_name, $read_time));
         set_post_view(get_the_ID());
         ?>
     <div>

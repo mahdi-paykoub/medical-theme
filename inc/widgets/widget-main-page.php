@@ -30,6 +30,13 @@ register_sidebar($aboutUsWidgetBottom);
 $aboutUsWidgetMain = array(
 	'name' => 'ویجت صفحه درباره ما (توضیحات اصلی)',
 	'id' => 'about_us_widget_main_description',
-	'description' => 'ویجت برای توضیحات در باره ما',
+	'description' => 'ویجت برای توضیحات درباره ما',
 );
 register_sidebar($aboutUsWidgetMain);
+
+$contactUsLeftSide = array(
+    'name' => 'ویجت صفحه تماس با ما (توضیحات کنار فرم)',
+    'id' => 'contact_us_widget_form_left',
+    'description' => 'ویجت برای توضیحات  تماس با ما',
+);
+register_sidebar($contactUsLeftSide);
