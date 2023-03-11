@@ -35,7 +35,11 @@ function contact_us_form() {
 		array( '%s', '%s', '%s', '%s', '%s' )
 	);
 
-	wp_die( 1 );
+    if ( is_wp_error( $id_it ) ) {
+        wp_die( 0 );
+    }
+
+    wp_die( 1 );
 }
 
 add_action( 'wp_ajax_contact_us_form', 'contact_us_form' );

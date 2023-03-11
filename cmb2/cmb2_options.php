@@ -153,6 +153,16 @@ class Medicalprefix_Admin
 		    'id' => 'header_text_2',
 		    'type' => 'textarea_small',
 	    ));
+        $cmb->add_group_field($general_options, array(
+            'name' => 'متن کنار دسته بندی صفحه اصلی',
+            'id' => 'category_main_text',
+            'type' => 'textarea_small',
+        ));
+        $cmb->add_group_field($general_options, array(
+            'name' => 'متن کوچک کنار دسته بندی صفحه اصلی',
+            'id' => 'category_small_text',
+            'type' => 'textarea_small',
+        ));
 
 	    $cmb->add_group_field($general_options, array(
 		    'name' => 'متن فوتر',

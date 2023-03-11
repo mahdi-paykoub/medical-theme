@@ -10,6 +10,7 @@ include FILE_DIR . '/inc/meta-boxes.php';
 include FILE_DIR . '/inc/meta-taxonomy.php';
 include FILE_DIR . '/inc/widgets/widget-main-page.php';
 include FILE_DIR . '/inc/custom-post-type.php';
+include FILE_DIR . '/inc/admin/admin-menu.php';
 //cmb2
 require_once dirname(__FILE__) . '/CMB2-develop/init.php';
 require_once dirname(__FILE__) . '/cmb2/cmb2_options.php';

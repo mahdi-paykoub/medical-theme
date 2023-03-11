@@ -169,9 +169,15 @@ $(document).ready(function () {
                     error_register_login('اندازه نام کاربری بیشتر از حد مجاز است')
                 } else if (response == -5) {
                     error_register_login('اندازه پیام بیشتر از حد مجاز است')
+                } else if (response == 0) {
+                    error_register_login('مشکلی در ارتباط وجود دارد . لطفا دوباره بعدا تلاش نمایید')
                 } else if (response == 1) {
                     $('.response-box-parent').removeClass('d-none')
-                    $('.response-box-parent div').removeClass('alert-danger').addClass('alert-success').text('پیام شما با موفقیت ارسال شد')
+                    $('.response-box-parent div').removeClass('alert-danger').addClass('alert-success').text('پیام شما با موفقیت ارسال شد');
+                    $user_name = $('.user-name').val('');
+                    $user_mobile = $('.user-mobile').val('');
+                    $user_email = $('.user-email').val('');
+                    $user_text = $('.user-text').val('');
                 }
             },
         });

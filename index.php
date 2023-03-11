@@ -23,11 +23,10 @@ get_template_part('templates/response-box');
                         دسته بندی
                     </div>
                     <h2 class="mt-3 font-weight-bold fs35 mr-3 mr-lg-5 text-Purple-dark-withe w-space">
-                        ما طیف وسیعی از اطلاعات پرستاری و پزشکی را پوشش می دهیم
+                        <?php echo get_cmb2_values('general_options', 'category_main_text'); ?>
                     </h2>
                     <div class="mr-3 mr-lg-5 mt-2 fs15 lh-1-6 text-dark-white pb-5">
-                        ما نکات و توصیه های ویژه ای را برای درمان مراقبت های بهداشتی و سطح بالایی از بهترین ها ارائه می
-                        دهیم.
+                        <?php echo get_cmb2_values('general_options', 'category_small_text'); ?>
                     </div>
                     <a href="<?php echo home_url() . '/index.php/all-categories' ?>" title="همه دسته بندی"
                        class="fs14 mr-3 mr-lg-5 btn-all-cat text-white border-radios-10">همه دسته بندی
