@@ -1,7 +1,7 @@
 <?php
 get_header();
-if ( ! is_user_logged_in() ):
-	?>
+if (!is_user_logged_in()):
+    ?>
     <div class="bg-color-login w-100">
         <div class="container">
             <div class="row justify-content-center">
@@ -9,10 +9,10 @@ if ( ! is_user_logged_in() ):
                     <div class="p-login-box bg-white my-4">
                         <div class="text-center pt-5">
                             <a href="<?php echo home_url(); ?>">
-                                <img src="<?php echo get_cmb2_values('general_options' , 'site_logo'); ?>" alt="">
+                                <img src="<?php echo get_cmb2_values('general_options', 'site_logo'); ?>" class="w-30" alt="">
                             </a>
                         </div>
-                        <div class="px-3 px-md-5 mt-5">
+                        <div class="px-3 px-md-5 mt-4-5">
                             <input type="text" class="comment-replay-inp h60px w-100 border-radios-10 user-name"
                                    placeholder="نام کاربری">
                         </div>
@@ -66,27 +66,27 @@ if ( ! is_user_logged_in() ):
     </div>
 <?php
 else:
-	?>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-8 col-lg-5 mt-5">
-                    <div class="alert alert-info px-5 py-3">
-                        <svg class="-ver-8 ml-2" width="23" height="23" viewBox="0 0 23 23" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <circle opacity="0.15" cx="13.8062" cy="13.2944" r="9.19385" fill="#0090b0"></circle>
-                            <path d="M0.785 8C0.785 9.62908 0.873314 10.8846 1.08987 11.859C1.30444 12.8245 1.63433 13.4652 2.08458 13.9154C2.53483 14.3657 3.17551 14.6956 4.14099 14.9101C5.11539 15.1267 6.37092 15.215 8 15.215C9.62908 15.215 10.8846 15.1267 11.859 14.9101C12.8245 14.6956 13.4652 14.3657 13.9154 13.9154C14.3657 13.4652 14.6956 12.8245 14.9101 11.859C15.1267 10.8846 15.215 9.62908 15.215 8C15.215 6.37092 15.1267 5.11539 14.9101 4.14099C14.6956 3.17551 14.3657 2.53483 13.9154 2.08458C13.4652 1.63433 12.8245 1.30444 11.859 1.08987C10.8846 0.873315 9.62908 0.785 8 0.785C6.37092 0.785 5.11539 0.873315 4.14099 1.08987C3.17551 1.30444 2.53483 1.63433 2.08458 2.08458C1.63433 2.53483 1.30444 3.17551 1.08987 4.14099C0.873314 5.11539 0.785 6.37092 0.785 8Z"
-                                  stroke="#0090b0" stroke-width="1.57" stroke-linecap="round"
-                                  stroke-linejoin="round"></path>
-                            <path d="M7.99996 4.6665V11.3332M11.3333 7.33317V11.3332M4.66663 8.6665V11.3332"
-                                  stroke="#0090b0" stroke-width="1.57" stroke-linecap="round"
-                                  stroke-linejoin="round"></path>
-                        </svg>
-                        شما عضو سایت هستید.
-                        <a class="text-info fs15 mr-1" href="<?php echo home_url(); ?>"> (صفحه اصلی)</a>
-                    </div>
+    ?>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-5 mt-5">
+                <div class="alert alert-info px-5 py-3">
+                    <svg class="-ver-8 ml-2" width="23" height="23" viewBox="0 0 23 23" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <circle opacity="0.15" cx="13.8062" cy="13.2944" r="9.19385" fill="#0090b0"></circle>
+                        <path d="M0.785 8C0.785 9.62908 0.873314 10.8846 1.08987 11.859C1.30444 12.8245 1.63433 13.4652 2.08458 13.9154C2.53483 14.3657 3.17551 14.6956 4.14099 14.9101C5.11539 15.1267 6.37092 15.215 8 15.215C9.62908 15.215 10.8846 15.1267 11.859 14.9101C12.8245 14.6956 13.4652 14.3657 13.9154 13.9154C14.3657 13.4652 14.6956 12.8245 14.9101 11.859C15.1267 10.8846 15.215 9.62908 15.215 8C15.215 6.37092 15.1267 5.11539 14.9101 4.14099C14.6956 3.17551 14.3657 2.53483 13.9154 2.08458C13.4652 1.63433 12.8245 1.30444 11.859 1.08987C10.8846 0.873315 9.62908 0.785 8 0.785C6.37092 0.785 5.11539 0.873315 4.14099 1.08987C3.17551 1.30444 2.53483 1.63433 2.08458 2.08458C1.63433 2.53483 1.30444 3.17551 1.08987 4.14099C0.873314 5.11539 0.785 6.37092 0.785 8Z"
+                              stroke="#0090b0" stroke-width="1.57" stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                        <path d="M7.99996 4.6665V11.3332M11.3333 7.33317V11.3332M4.66663 8.6665V11.3332"
+                              stroke="#0090b0" stroke-width="1.57" stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                    </svg>
+                    شما عضو سایت هستید.
+                    <a class="text-info fs15 mr-1" href="<?php echo home_url(); ?>"> (صفحه اصلی)</a>
                 </div>
             </div>
         </div>
+    </div>
 <?php
 endif;
 get_footer();

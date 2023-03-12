@@ -9,10 +9,10 @@ if (!is_user_logged_in()):
                     <div class="p-login-box bg-white my-4">
                         <div class="text-center pt-5">
                             <a href="<?php echo home_url(); ?>">
-                                <img src="<?php echo get_cmb2_values('general_options', 'site_logo'); ?>" alt="">
+                                <img src="<?php echo get_cmb2_values('general_options', 'site_logo'); ?>" class="w-30" alt="">
                             </a>
                         </div>
-                        <div class="px-3 px-md-5 mt-5">
+                        <div class="px-3 px-md-5 mt-4-5">
                             <input type="text" class="comment-replay-inp h60px w-100 border-radios-10 user-name"
                                    placeholder="نام کاربری">
                         </div>

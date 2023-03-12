@@ -28,7 +28,7 @@
                         <div class="logo-parent">
                             <a href="<?php echo home_url(); ?>" title="">
                                 <img src="<?php echo get_cmb2_values('general_options', 'site_logo'); ?>"
-                                     class="" alt="" title="">
+                                     class="object-contain" alt="" title="">
                             </a>
                         </div>
                         <div class="links-parent">
@@ -45,7 +45,7 @@
                             <div class="text-center d-lg-none mt-2 logo-parent">
                                 <a href="<?php echo home_url(); ?>" title="">
                                     <img src="<?php echo get_cmb2_values('general_options', 'site_logo'); ?>"
-                                         width="70" height="70" alt="" title="">
+                                         class="object-contain" width="70" height="70" alt="" title="">
                                 </a>
                             </div>
                             <!--search box-->
@@ -62,35 +62,6 @@
                                 'theme_location' => 'to-header-menu'
                             ));
                             ?>
-                            <!--<nav>
-								<ul>
-									<li><a href="" title="asxasxasxasx">بیماری</a></li>
-									<li><a href="" title="">بیماری</a></li>
-									<li>
-										<a href="" title="">بیماری</a>
-										<ul>
-											<li><a href="" title="">زیر منو</a></li>
-											<li><a href="" title="">زیر منو</a></li>
-											<li><a href="" title="">زیر منو</a></li>
-											<li><a href="" title="">زیر منو</a></li>
-											<li><a href="" title="">زیر منو</a></li>
-											<li><a href="" title="">زیر منو</a></li>
-										</ul>
-									</li>
-									<li>
-										<a href="" title="">بیماری</a>
-										<ul>
-											<li><a href="" title="">زیر منو</a></li>
-											<li><a href="" title="">زیر منو</a></li>
-											<li><a href="" title="">زیر منو</a></li>
-											<li><a href="" title="">زیر منو</a></li>
-											<li><a href="" title="">زیر منو</a></li>
-											<li><a href="" title="">زیر منو</a></li>
-										</ul>
-									</li>
-									<li><a href="" title="">بیماری</a></li>
-								</ul>
-							</nav>-->
                         </div>
                     </div>
                 </div>
@@ -98,7 +69,7 @@
                 <?php
                 if (is_user_logged_in()):
                 ?>
-                <div class="mr-auto mt-4 ml-4">
+                <div class="mr-auto ml-4 mt24px">
                     <?php
                     else:
                     ?>
