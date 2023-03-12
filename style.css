@@ -586,6 +586,16 @@ a:hover {
     width: fit-content;
 }
 
+.c-d-flex {
+    display: flex;
+}
+
+.main-medical-loader {
+    height: 100vh;
+    z-index: 10000;
+    align-items: center;
+}
+
 /*end global classes*/
 
 /*start header*/

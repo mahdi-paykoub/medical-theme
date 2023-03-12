@@ -1,4 +1,8 @@
-$(document).ready(function () {
+jQuery(document).ready(function () {
+    //loader
+    $(window).on('load', function () {
+        $(".main-medical-loader").fadeOut(10);
+    });
     //open side nav
     $('.hamburger').click(function () {
         $(".links-parent").addClass('go-left-sidebar');
@@ -6,7 +10,6 @@ $(document).ready(function () {
     $('.close-btn').click(function () {
         $(".links-parent").removeClass('go-left-sidebar');
     })
-
     //smooth scroll
     $(document).on('click', 'a[href^="#"]', function (event) {
         event.preventDefault();
@@ -174,10 +177,16 @@ $(document).ready(function () {
                 } else if (response == 1) {
                     $('.response-box-parent').removeClass('d-none')
                     $('.response-box-parent div').removeClass('alert-danger').addClass('alert-success').text('پیام شما با موفقیت ارسال شد');
-                    $user_name = $('.user-name').val('');
+                    /*$user_name = $('.user-name').val('');
                     $user_mobile = $('.user-mobile').val('');
                     $user_email = $('.user-email').val('');
-                    $user_text = $('.user-text').val('');
+                    $user_text = $('.user-text').val('');*/
+                    setTimeout(hide, 3000);
+
+                    /* window.location.replace(data.home_url);*/
+                    function hide() {
+                        window.location.replace(data.home_url);
+                    }
                 }
             },
         });

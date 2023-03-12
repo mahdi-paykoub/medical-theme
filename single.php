@@ -4,13 +4,12 @@ get_header();
 if (have_posts()):
     while (have_posts()): the_post();
         $P_name = get_the_title();
-        $read_time =is_postmeta_empty('post_read_time');
+        $read_time = is_postmeta_empty('post_read_time');
         get_template_part('templates/single-header', null, array($P_name, $read_time));
         set_post_view(get_the_ID());
         ?>
-    <div>
-        
-    </div>
+        <div>
+        </div>
         <!--content-->
         <div class="container mt-5 pt-5">
             <!--content-->
@@ -109,8 +108,10 @@ if (have_posts()):
                         </div>
                         <div class="col-12 col-md-6 text-left mt-4 mt-md-0">
                             <div class="short-link-box postion-relative">
-                                <input class="fs14 border p-2  text-secondary pl-4 " type="text" value="<?php the_permalink(); ?>">
-                                <svg class="-ver-4 position-absolute" width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <input class="fs14 border p-2  text-secondary pl-4 " type="text"
+                                       value="<?php the_permalink(); ?>">
+                                <svg class="-ver-4 position-absolute" width="14" height="13" viewBox="0 0 14 13"
+                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M11.1251 9.37753C11.1735 9.03246 11.2048 8.65154 11.2224 8.23142C11.342 8.16599 11.4325 8.09594 11.5044 8.02404C11.6726 7.85578 11.8308 7.58558 11.9433 7.07954C12.0583 6.56181 12.1108 5.86547 12.1108 4.91155C12.1108 3.00521 11.8476 2.22592 11.4625 1.84091C11.0775 1.45589 10.2983 1.19269 8.3919 1.19269C7.43799 1.19269 6.74164 1.24514 6.22392 1.3602C5.71788 1.47266 5.44768 1.63081 5.27942 1.79907C5.20752 1.87097 5.13746 1.96148 5.07203 2.08106C5.36761 2.06867 5.68259 2.06306 6.01814 2.06306C10.3187 2.06306 11.2404 2.98479 11.2404 7.2853C11.2404 11.5858 10.3187 12.5075 6.01814 12.5075C1.71762 12.5075 0.795898 11.5858 0.795898 7.2853C0.795898 3.79726 1.40225 2.53194 3.92593 2.17833C4.4152 0.577466 5.64584 0.164062 8.3919 0.164062C12.1899 0.164062 13.1394 1.11356 13.1394 4.91155C13.1394 7.65762 12.726 8.88826 11.1251 9.37753Z"
                                           fill="currentColor" fill-opacity="0.56"></path>
                                 </svg>
