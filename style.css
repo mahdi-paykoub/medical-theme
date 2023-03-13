@@ -604,7 +604,9 @@ a:hover {
     z-index: 10000;
     align-items: center;
 }
-
+.ltr{
+    direction: ltr;
+}
 /*end global classes*/
 
 /*start header*/
